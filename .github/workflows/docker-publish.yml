@@ -72,8 +72,6 @@ jobs:
         with:
           source: "${{ github.server_url }}/${{ github.repository }}.git#${{ github.ref }}"
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
           PLEX_LIBRARY_PATH: ${{ secrets.PLEX_LIBRARY_PATH }}
