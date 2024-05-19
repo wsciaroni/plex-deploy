@@ -21,4 +21,4 @@ This setup will require the use of the following environment variables.
 | `PLEX_LIBRARY_PATH` | Plex volume for `/config` |
 | `PLEX_TV_PATH` | Plex volume for `/tv` |
 | `PLEX_MOVIES_PATH` | Plex volume for `/movies` |
-| `GITHUB_PAT` | Used to deploy to or retrieve from the GitHub container registry |
+| `GH_PAT` | Used to deploy to or retrieve from the GitHub container registry |
