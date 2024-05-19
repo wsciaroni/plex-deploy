@@ -10,7 +10,7 @@ services:
       - TZ=Etc/UTC
       - VERSION=docker
     volumes:
-      - /path/to/library:/config
-      - /path/to/tvseries:/tv
-      - /path/to/movies:/movies
+      - ${PLEX_LIBRARY_PATH}:/config
+      - ${PLEX_TV_PATH}:/tv
+      - ${PLEX_MOVIES_PATH}:/movies
     restart: unless-stopped
