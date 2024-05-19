@@ -68,19 +68,14 @@ jobs:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
       - name: Build and push
-        uses: docker/bake-action@v4
-        with:
-          source: "${{ github.server_url }}/${{ github.repository }}.git#${{ github.ref }}"
-          push: ${{ github.event_name != 'pull_request' }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
-          PLEX_LIBRARY_PATH: ${{ secrets.PLEX_LIBRARY_PATH }}
-          PLEX_MOVIES_PATH: ${{ secrets.PLEX_MOVIES_PATH }}
-          PLEX_TV_PATH: ${{ secrets.PLEX_TV_PATH }}
         env:
           PLEX_LIBRARY_PATH: ${{ secrets.PLEX_LIBRARY_PATH }}
           PLEX_MOVIES_PATH: ${{ secrets.PLEX_MOVIES_PATH }}
           PLEX_TV_PATH: ${{ secrets.PLEX_TV_PATH }}
+          DOCKER_BUILD_PATH: "${{ github.server_url }}/${{ github.repository }}.git#${{ github.ref }}"
+        run: |
+          docker-compose build
+          docker-compose push
 
       # Sign the resulting Docker image digest except on PRs.
       # This will only write to the public Rekor transparency log when the Docker
