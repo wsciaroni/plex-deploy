@@ -22,3 +22,5 @@ This setup will require the use of the following environment variables.
 | `PLEX_TV_PATH` | Plex volume for `/tv` |
 | `PLEX_MOVIES_PATH` | Plex volume for `/movies` |
 | `GH_PAT` | Used to deploy to or retrieve from the GitHub container registry |
+| `GH_USERNAME` | GitHub user associated with the `GH_PAT` |
+| `GH_DOCKER_IMAGE_NAME` | Name of the image |
