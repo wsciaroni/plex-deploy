@@ -76,6 +76,10 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+        env:
+          PLEX_LIBRARY_PATH: ${{ env.PLEX_LIBRARY_PATH }}
+          PLEX_MOVIES_PATH: ${{ env.PLEX_MOVIES_PATH }}
+          PLEX_TV_PATH: ${{ env.PLEX_TV_PATH }}
 
       # Sign the resulting Docker image digest except on PRs.
       # This will only write to the public Rekor transparency log when the Docker
