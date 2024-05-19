@@ -14,3 +14,4 @@ services:
       - ${PLEX_TV_PATH}:/tv
       - ${PLEX_MOVIES_PATH}:/movies
     restart: unless-stopped
+    build: ${DOCKER_BUILD_PATH}
